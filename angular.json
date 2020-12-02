@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "custom-validators"
+    }
+  },
+  "defaultProject": "custom-validators",
+  "cli": {
+    "analytics": "66c5590a-3fbb-40e3-b35c-a8d724ab3fa2"
+  }
 }
