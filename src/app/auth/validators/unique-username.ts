@@ -12,7 +12,7 @@ export class UniqueUsername implements AsyncValidator {
   constructor(private authService: AuthService) {}
 
   // Bind the context of the validate function to the instance of the class
-  // with the arrow function, otherwise it's undfefined
+  // with the arrow function, otherwise it's undefined
   validate = (control: FormControl) => {
     const { value } = control;
 
