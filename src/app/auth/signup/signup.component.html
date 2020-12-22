@@ -1,6 +1,6 @@
 <h3>Create an account</h3>
 
-<form class="ui form" [formGroup]="authForm">
+<form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="authForm">
   <app-input
     inputType="text"
     label="Username"
@@ -29,6 +29,8 @@
     <p *ngIf="authForm.errors.passwordsDontMatch">
       Password and Password Confirmation must match
     </p>
+    <p *ngIf="authForm.errors.noConnection">No Internet Connection</p>
+    <p *ngIf="authForm.errors.unknownError">Unknown Error</p>
   </div>
 
   <div>
