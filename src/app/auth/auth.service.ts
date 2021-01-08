@@ -40,11 +40,25 @@ export class AuthService {
       .post<SignupResponse>(
         `${this.rootUrl}/auth/signup`,
 
-        credentials
+        credentials,
+        {
+          withCredentials: true, // Make sure that cookie does not get discarded
+        }
       )
       .pipe(
         tap(() => {
           this.signedin$.next(true);
+        })
+      );
+  }
+
+  // Check if user is logged in
+  checkAuth() {
+    return this.http
+      .get(`${this.rootUrl}/auth/signedin`, { withCredentials: true })
+      .pipe(
+        tap((response) => {
+          console.log(response);
         })
       );
   }

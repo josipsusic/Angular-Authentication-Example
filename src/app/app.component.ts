@@ -4,18 +4,20 @@ import { AuthService } from './auth/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  // Alternatively use signedin$: BehaviorSubject with 
+  // async pipe in the template
   signedin = false;
 
-  constructor(private authService: AuthService) {
-
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.signedin$.subscribe((singedin) => {
       this.signedin = singedin;
-    })
+    });
+
+    this.authService.checkAuth().subscribe(() => {});
   }
 }
